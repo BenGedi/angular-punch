@@ -1,5 +1,7 @@
+'use strict';
+var app = angular.module('Punch');
+
 app.controller('MainCtrl', ['$scope', 'employees', function($scope, employees){
-	'use strict';
 	console.log(employees.getEmployees());
 
 	$scope.model = {
