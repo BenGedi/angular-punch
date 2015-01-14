@@ -6,7 +6,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>ID ben</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Job Title</th>
@@ -18,7 +18,7 @@
         <tbody>
           <tr ng-repeat="employee in model.employees | searchBy : searchText : 'fname'">
             <td>
-              <span ng-hide="employee.edit">{{ employee.id }}</span>
+              <span ng-hide="employee.edit"><a href="#/emplyoee/{{ employee.id }}">{{ employee.id }}</a></span>
               <input ng-show="employee.edit" type="text" class="form-control" ng-model="employee.id" />
             </td>
             <td>
