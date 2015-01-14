@@ -29,8 +29,6 @@ app.controller('MainCtrl', ['$scope', 'employees', function($scope, employees){
       employee.edit = !employee.edit;
     };
 
-
-
 	$scope.addEmployee = function(newEmployee) {
 		newEmployee = angular.copy(newEmployee);
 		$scope.model.employees.push(newEmployee);
