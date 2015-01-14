@@ -25,6 +25,12 @@ app.controller('MainCtrl', ['$scope', 'employees', function($scope, employees){
 		}
 	};
 
+    $scope.toggleEditEmployee = function(employee){
+      employee.edit = !employee.edit;
+    };
+
+
+
 	$scope.addEmployee = function(newEmployee) {
 		newEmployee = angular.copy(newEmployee);
 		$scope.model.employees.push(newEmployee);
@@ -38,12 +44,6 @@ app.controller('MainCtrl', ['$scope', 'employees', function($scope, employees){
 		return $scope.model.jobs[id];
 	};
 
-	$scope.searchFn = function(value, index) {
-		if (!$scope.searchText) {
-			return true;
-		}
-		return value.lname.indexOf($scope.searchText) > -1;
-	};
 }]);
 
 app.filter('searchBy', [function() {

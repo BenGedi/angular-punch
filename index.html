@@ -21,18 +21,38 @@
             <th>Last Name</th>
             <th>Job Title</th>
             <th>Hours Worked this month</th>
-            <th></th>
-            <th></th>
+            <th>Edit</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="employee in model.employees | searchBy : searchText : 'fname'">
-            <td>{{ employee.id }}</td>
-            <td>{{ employee.fname | capitalize }}</td>
-            <td>{{ employee.lname }}</td>
-            <td>{{ getTitle(employee.title) }}</td>
-            <td>{{ employee.hours }}</td>
-            <td><button class="btn btn-primary glyphicon glyphicon-edit"></button></td>
+            <td>
+              <span ng-hide="employee.edit">{{ employee.id }}</span>
+              <input ng-show="employee.edit" type="text" class="form-control" ng-model="employee.id" />
+            </td>
+            <td>
+                <span ng-hide="employee.edit">{{ employee.fname | capitalize }}</span>
+                <input ng-show="employee.edit" type="text" class="form-control" ng-model="employee.fname" />
+            </td>
+            <td>
+                <span ng-hide="employee.edit">{{ employee.lname }}</span>
+                <input ng-show="employee.edit" class="form-control" type="text" ng-model="employee.lname" />
+            </td>
+            <td>
+                <span ng-hide="employee.edit">{{ getTitle(employee.title) }}</span>
+                <select ng-show="employee.edit"  class="form-control" ng-model="employee.title" ng-options="id as title for (id, title) in model.jobs">
+                  <option value="">Select a Job</option>
+                </select>
+            </td>
+            <td>
+                <span ng-hide="employee.edit">{{ employee.hours }}</span>
+                <input ng-show="employee.edit" class="form-control" type="text" ng-model="employee.hours" />
+            </td>
+            <td>
+              <button class="btn btn-default glyphicon glyphicon-ok" ng-show="employee.edit" ng-click="toggleEditEmployee(employee)"></button>
+              <button class="btn btn-primary glyphicon glyphicon-edit" ng-hide="employee.edit" ng-click="toggleEditEmployee(employee)"></button>
+            </td>
             <td><button class="btn btn-danger glyphicon glyphicon-trash" ng-click="deleteEmployee($index)"></button></td>
           </tr>
         </tbody>
