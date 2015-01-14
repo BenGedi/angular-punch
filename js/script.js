@@ -1,6 +1,3 @@
-(function(){
-	'use strict';
-
 var app = angular.module('Punch', ['ngRoute']);
 
 app.config(['$routeProvider' , function($routeProvider){
@@ -96,5 +93,3 @@ app.factory('employees', [function(){
 		getEmployees: getEmployees
 	};
 }]);
-
-})();
