@@ -86,7 +86,6 @@
 
     // Custom Globals
      "globals"       : {         // additional predefined global variables
-        "angular" : true,
-        "app" : true
+        "angular" : true
     }
 }
