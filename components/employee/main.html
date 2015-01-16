@@ -3,7 +3,7 @@
     <label for="search-box">
       Search for Employee <span style="font-size: 70%;">(by last name)</span>
     </label>
-      <input id="search-box" class="form-control" ng-model="searchText" />
+      <input id="search-box" class="form-control" ng-model="searchText.lname" />
       <table class="table">
         <thead>
           <tr>
@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="employee in model.employees | filter : searchText : 'fname'">
+          <tr ng-repeat="employee in model.employees | filter : searchText">
             <td>
               <span ng-hide="employee.edit"><a href="#/emplyoee/{{ employee.id }}">{{ employee.id }}</a></span>
               <input ng-show="employee.edit" type="text" class="form-control" ng-model="employee.id" />
