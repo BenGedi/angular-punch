@@ -1,6 +1,7 @@
 (function () {
 	'use strict';
 	var app = angular.module('Punch');
+
 	app.filter('searchBy', [function() {
 
 		return function(arr, searchText, prop) {

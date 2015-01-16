@@ -17,7 +17,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="employee in model.employees | searchBy : searchText : 'fname'">
+          <tr ng-repeat="employee in model.employees | filter : searchText : 'fname'">
             <td>
               <span ng-hide="employee.edit"><a href="#/emplyoee/{{ employee.id }}">{{ employee.id }}</a></span>
               <input ng-show="employee.edit" type="text" class="form-control" ng-model="employee.id" />
